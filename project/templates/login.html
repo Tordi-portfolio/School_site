@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+    {% block content %}
+    
+    <div>
+
+        <h2>LOGIN HERE</h2>
+        <form method="POST" class="form-box">
+            {% csrf_token %}
+            <input type="text" name="username"><br>
+            <input type="password" name="password"><button>Login</button>
+        </form>
+        <p>Don't Have an account? <a href="{% url 'register' %}">Register</a></p>
+
+
+    </div>
+
+
+<style>
+    h2 {
+        text-align: center;
+        margin: 10%;
+    }
+    p {
+        text-align: center;
+    }
+    .form-box {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #3498db;   /* Border around the whole form */
+    border-radius: 15px;         /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Optional shadow */
+    background-color: #fff;      /* Optional background */
+    }
+
+    .form-box input,
+    .form-box button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    }
+
+</style>
+
+{% endblock %}

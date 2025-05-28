@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div>
+
+        <h2>Welcome, {{ student.username }}</h2>
+<p>Class: {{ student.classroom }}</p>
+
+{% if result %}
+<h3>Your Scores</h3>
+<table border="1">
+<tr><th>Subject</th><th>Test 1</th><th>Test 2</th><th>Exam</th><th>Total</th></tr>
+<tr>
+  <td>Maths</td>
+  <td>{{ result.maths_test1 }}</td>
+  <td>{{ result.maths_test2 }}</td>
+  <td>{{ result.maths_exam }}</td>
+  <td>{{ result.maths_total }}</td>
+
+</tr>
+<tr>
+  <td>English</td>
+  <td>{{ result.english_test1 }}</td>
+  <td>{{ result.english_test2 }}</td>
+  <td>{{ result.english_exam }}</td>
+  <td>{{ result.english_total }}</td>
+</tr>
+<tr>
+    <td>civic</td>
+    <td>{{ result.civic_test1 }}</td>
+    <td>{{ result.civic_test2 }}</td>
+    <td>{{ result.civic_exam }}</td>
+    <td>{{ result.civic_total }}</td>
+  </tr>
+  <tr>
+    <td>agric</td>
+    <td>{{ result.agric_test1 }}</td>
+    <td>{{ result.agric_test2 }}</td>
+    <td>{{ result.agric_exam }}</td>
+    <td>{{ result.agric_total }}</td>
+  </tr>
+  <tr>
+    <td>computer</td>
+    <td>{{ result.computer_test1 }}</td>
+    <td>{{ result.computer_test2 }}</td>
+    <td>{{ result.computer_exam }}</td>
+    <td>{{ result.computer_total }}</td>
+  </tr>
+  <tr>
+    <td>verbal_reasoning</td>
+    <td>{{ result.verbal_reasoning_test1 }}</td>
+    <td>{{ result.verbal_reasoning_test2 }}</td>
+    <td>{{ result.verbal_reasoning_exam }}</td>
+    <td>{{ verbal_reasoning.maths_total }}</td>
+  </tr>
+  <tr>
+    <td>quantitative</td>
+    <td>{{ result.quantitative_test1 }}</td>
+    <td>{{ result.quantitative_test2 }}</td>
+    <td>{{ result.quantitative_exam }}</td>
+    <td>{{ result.quantitative_total }}</td>
+  </tr>
+  <tr>
+    <td>crs</td>
+    <td>{{ result.crs_test1 }}</td>
+    <td>{{ result.crs_test2 }}</td>
+    <td>{{ result.crs_exam }}</td>
+    <td>{{ result.crs_total }}</td>
+  </tr>
+  <tr>
+    <td>social_studies</td>
+    <td>{{ result.social_studies_test1 }}</td>
+    <td>{{ result.social_studies_test2 }}</td>
+    <td>{{ result.social_studies_exam }}</td>
+    <td>{{ result.social_studies_total }}</td>
+  </tr>
+  <tr>
+    <td>government</td>
+    <td>{{ result.government_test1 }}</td>
+    <td>{{ result.government_test2 }}</td>
+    <td>{{ result.government_exam }}</td>
+    <td>{{ result.government_total }}</td>
+  </tr>
+<!-- Repeat for other subjects -->
+<tr><th colspan="4">Total Score</th><th>{{ result.total_score }}</th></tr>
+<tr><th colspan="4">Position</th><th>{{ position }}</th></tr>
+</table>
+{% else %}
+<p>No result yet.</p>
+{% endif %}
+<a href="{% url 'logout' %}">Logout</a>
+
+
+    </div>
+
+<style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-family: Arial, sans-serif;
+    }
+  
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px 15px;
+      text-align: center;
+    }
+  
+    th {
+      background-color: #4CAF50;
+      color: white;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+  
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+  
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+  
+    h2 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+  
+    .score-summary {
+      margin-top: 30px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+  
+    .logout-link {
+      margin-top: 20px;
+      display: inline-block;
+      background: #f44336;
+      color: white;
+      padding: 10px 15px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  
+    .logout-link:hover {
+      background: #d32f2f;
+    }
+  </style>
+
+<style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+  
+    .result-header {
+      background: white;
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 30px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+  
+    .result-header h1 {
+      font-size: 28px;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+  
+    .result-header h2 {
+      font-size: 20px;
+      color: #34495e;
+      margin-bottom: 20px;
+    }
+  
+    .result-header p {
+      font-size: 16px;
+      margin: 4px 0;
+      color: #555;
+    }
+  </style>
+  
+  {% endblock %}

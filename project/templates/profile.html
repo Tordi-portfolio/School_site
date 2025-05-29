@@ -27,11 +27,52 @@
             margin-top: 100px;
         }
     </style>
+
+<style>
+
+    .user-info-table {
+        width: 100%;
+        max-width: 600px;
+        margin: 40px auto;
+        border-collapse: collapse;
+        font-family: 'Segoe UI', sans-serif;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    
+    .user-info-table thead {
+        background-color: #4a90e2;
+        color: white;
+    }
+    
+    .user-info-table th {
+        padding: 15px;
+        font-size: 20px;
+        text-align: center;
+    }
+    
+    .user-info-table td {
+        padding: 12px 20px;
+        font-size: 16px;
+        border-bottom: 1px solid #ddd;
+        background-color: #f9f9f9;
+    }
+    
+    .user-info-table tr:nth-child(even) td {
+        background-color: #f1f1f1;
+    }
+    
+    .user-info-table td:first-child {
+        font-weight: bold;
+        color: #333;
+        width: 40%;
+    }
+    
+    </style>
 </head>
 <body>
-    <div class="profile-container">
-        <img class="profile-pic" src="{{ user.profile.image.url }}" alt="Profile Picture">
-    </div>
+
 
     <div class="upload-form">
         <h3>Change Profile Picture</h3>
@@ -43,6 +84,37 @@
     </div>
 </body>
 </html>
+
+<table class="user-info-table">
+    <thead>
+        <tr>
+            <th colspan="2">User Profile</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>First Name:</td>
+            <td>{{ user.first_name }}</td>
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <td>{{ user.last_name }}</td>
+        </tr>
+        <tr>
+            <td>Username:</td>
+            <td>{{ user.username }}</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+            <td>Class:</td>
+            <td>{{ user.classroom }}</td>
+        </tr>
+        classroom
+    </tbody>
+</table>
 
 
 {% endblock %}

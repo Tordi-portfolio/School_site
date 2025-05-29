@@ -7,17 +7,20 @@
 </head>
 <body>
     <header class="navbar">
-        <div class="logo">School Portal</div>
+        <div class="logo">Evason School Portal</div>
         <input type="checkbox" id="nav-toggle" class="nav-toggle">
         <nav>
             {% if user.is_authenticated %}
           <ul>
-            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'dashboard' %}">Result</a></li>
+            <li><a href="{% url 'news' %}">News</a></li>
             <li><a href="{% url 'profile' %}">Profile</a></li>
             <li><a href="{% url 'logout' %}">Logout</a></li>
           </ul>
           {% else %}
           <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
             <li><a href="{% url 'login' %}">Login</a></li>
             <li><a href="{% url 'register' %}">Register</a></li>
           </ul>

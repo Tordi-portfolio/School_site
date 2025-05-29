@@ -6,6 +6,7 @@ from .forms import StudentRegistrationForm
 from .models import Result, StudentUser
 from datetime import datetime
 from .forms import ProfileUpdateForm
+from .models import Post
 
 # Create your views here.
 
@@ -23,6 +24,15 @@ def profile_view(request):
     return render(request, 'profile.html', {'form': form})
 # End of profile picture view
 
+@login_required
+def news(request):
+    posts = Post.objects.all()
+    return render(request, 'news.html', {'posts': posts})
+
+@login_required
+def post(request, pk):
+    posts = Post.objects.get(id=pk)
+    return render(request, 'posts.html', {'posts': posts})
 
 def index(request):
     return render(request, 'index.html')
@@ -30,6 +40,7 @@ def index(request):
 def base(request):
     return render(request, 'base.html', {'year': datetime.now().year})
 
+@login_required
 def profile(request):
     return render(request, 'profile.html')
 
@@ -57,7 +68,7 @@ def register(request):
 def login_view(request):
     if request.method == 'POST':
         user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
-        if user: login(request, user); return redirect('dashboard')
+        if user: login(request, user); return redirect('index')
         messages.error(request, 'Invalid credentials')
     return render(request, 'login.html')
 
